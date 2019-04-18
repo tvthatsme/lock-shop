@@ -1,0 +1,25 @@
+{
+  "doors": [
+    {
+      "label": "Front Door",
+      "authenticated_users": [
+        1
+      ],
+      "id": "f70b78f0-620a-11e9-8bd4-23331b421772"
+    },
+    {
+      "label": "Storage Room",
+      "authenticated_users": [
+        1
+      ],
+      "id": "154ed140-620b-11e9-8bd4-23331b421772"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "admin"
+    }
+  ],
+  "events": []
+}
