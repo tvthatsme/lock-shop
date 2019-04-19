@@ -28,7 +28,7 @@ const Doors = () => {
   };
 
   // Remove door from the system
-  const remove = async id => {
+  const removeDoor = async id => {
     await doors.remove(id);
     getAllDoors();
   };
@@ -38,6 +38,7 @@ const Doors = () => {
       <h1>Doors</h1>
 
       <form onSubmit={addNewDoor}>
+        <p>Add a new door</p>
         <label htmlFor="new-door">Door name</label>
         <input
           id="new-door"
@@ -49,6 +50,7 @@ const Doors = () => {
       </form>
 
       <table>
+        <caption>All doors in the system</caption>
         <thead>
           <tr>
             <th>Name</th>
@@ -62,7 +64,7 @@ const Doors = () => {
               <td>{door.label}</td>
               <td>{door.authenticated_users.length}</td>
               <td>
-                <button type="button" onClick={() => remove(door.id)}>
+                <button type="button" onClick={() => removeDoor(door.id)}>
                   x
                 </button>
               </td>

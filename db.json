@@ -3,22 +3,43 @@
     {
       "label": "Front Door",
       "authenticated_users": [
-        1
+        "be425a90-62d0-11e9-8cc0-49ceb88f6671"
       ],
       "id": "f70b78f0-620a-11e9-8bd4-23331b421772"
     },
     {
       "label": "Storage Room",
       "authenticated_users": [
-        1
+        "be425a90-62d0-11e9-8cc0-49ceb88f6671"
       ],
       "id": "154ed140-620b-11e9-8bd4-23331b421772"
     }
   ],
   "users": [
     {
-      "id": 1,
-      "name": "admin"
+      "name": "admin",
+      "id": "be425a90-62d0-11e9-8cc0-49ceb88f6671",
+      "isAdmin": true
+    },
+    {
+      "name": "Roger Williams",
+      "id": "05b7cf90-62d1-11e9-9ffc-6b17c7dd1871",
+      "isAdmin": false
+    },
+    {
+      "name": "Ruth Bailey",
+      "id": "11e22130-62d1-11e9-9ffc-6b17c7dd1871",
+      "isAdmin": false
+    },
+    {
+      "name": "Shirley Sisler",
+      "id": "1d720790-62d1-11e9-9ffc-6b17c7dd1871",
+      "isAdmin": false
+    },
+    {
+      "name": "Roy Sherman",
+      "id": "2f860530-62d1-11e9-9ffc-6b17c7dd1871",
+      "isAdmin": false
     }
   ],
   "events": []

@@ -59,4 +59,10 @@ const doors = {
   remove: removeOneOfType('doors')
 };
 
-export { doors };
+const people = {
+  getAll: getAllOfType('users'),
+  add: addOneOfType('users'),
+  remove: removeOneOfType('users')
+};
+
+export { doors, people };
