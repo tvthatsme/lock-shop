@@ -1,36 +1,27 @@
 // admin page for doors
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Page from '../../components/page/page.js';
 import { doors } from '../../api/index.js';
+import useGetAllDoors from '../../hooks/useGetAllDoors.js';
 
 const Doors = () => {
-  const [doorsList, setDoorsList] = useState([]);
+  const [doorsList, refreshDoorsList] = useGetAllDoors();
   const [doorName, setDoorName] = useState('');
-
-  // Get the latest on mount/update
-  useEffect(() => {
-    getAllDoors();
-  }, []);
-
-  const getAllDoors = async () => {
-    const result = await doors.getAll();
-    setDoorsList(result);
-  };
 
   // Add new door to the system
   const addNewDoor = async event => {
     event.preventDefault();
     setDoorName('');
     await doors.add({ label: doorName });
-    getAllDoors();
+    refreshDoorsList();
   };
 
   // Remove door from the system
   const removeDoor = async id => {
     await doors.remove(id);
-    getAllDoors();
+    refreshDoorsList();
   };
 
   return (

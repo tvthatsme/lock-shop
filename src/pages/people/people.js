@@ -1,33 +1,25 @@
 // admin page for people
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { people } from '../../api/index.js';
 import Page from '../../components/page/page.js';
+import useGetAllPeople from '../../hooks/useGetAllPeople.js';
 
 const People = () => {
-  const [peopleList, setPeopleList] = useState([]);
+  const [peopleList, refreshPeopleList] = useGetAllPeople();
   const [personName, setPersonName] = useState('');
-
-  useEffect(() => {
-    getAllPeople();
-  }, []);
-
-  const getAllPeople = async () => {
-    const result = await people.getAll();
-    setPeopleList(result);
-  };
 
   const addNewPerson = async event => {
     event.preventDefault();
     setPersonName('');
     await people.add({ name: personName });
-    getAllPeople();
+    refreshPeopleList();
   };
 
   const removePerson = async id => {
     await people.remove(id);
-    getAllPeople();
+    refreshPeopleList();
   };
 
   return (
