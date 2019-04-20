@@ -32,7 +32,14 @@ function addOneOfType(type) {
       },
       body: JSON.stringify(data)
     });
-    return response.status === 200;
+
+    // Add a special case for calls that require a user to be authorized
+    const responseJson = await response.json();
+    if (response.url.includes('events') && !responseJson.authorized) {
+      return false;
+    }
+
+    return response.status === 201;
   };
 }
 
@@ -52,7 +59,7 @@ function modifyOneOfType(type) {
       },
       body: JSON.stringify(data)
     });
-    return response.status === 200;
+    return response.status === 201;
   };
 }
 
@@ -68,7 +75,7 @@ function removeOneOfType(type) {
     const response = await fetch(`${apiEndpoint}${type}/${id}`, {
       method: 'DELETE'
     });
-    return response.status === 200;
+    return response.status === 201;
   };
 }
 
@@ -87,4 +94,9 @@ const people = {
   remove: removeOneOfType('users')
 };
 
-export { doors, people };
+// Create an object for events (opening doors)
+const events = {
+  add: addOneOfType('events')
+};
+
+export { doors, people, events };
