@@ -96,6 +96,7 @@ const people = {
 
 // Create an object for events (opening doors)
 const events = {
+  getAll: getAllOfType('events'),
   add: addOneOfType('events')
 };
 
