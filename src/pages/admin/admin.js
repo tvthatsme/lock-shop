@@ -4,13 +4,12 @@ import React from 'react';
 
 import Page from '../../components/page/page.js';
 import PermissionsBar from '../../components/permissions-bar/permissions-bar.js';
-import useGetAllDoors from '../../hooks/useGetAllDoors.js';
-import useGetAllPeople from '../../hooks/useGetAllPeople.js';
-import { doors } from '../../api/index.js';
+import useGetArray from '../../hooks/useGetArray.js';
+import { doors, people } from '../../api/index.js';
 
 const Admin = () => {
-  const [doorsList, refreshDoorsList] = useGetAllDoors();
-  const [people] = useGetAllPeople();
+  const [doorsList, refreshDoorsList] = useGetArray(doors.getAll);
+  const [peopleList] = useGetArray(people.getAll);
 
   const togglePersonsPermissions = async (
     doorObject,
@@ -41,7 +40,7 @@ const Admin = () => {
         <PermissionsBar
           key={door.id}
           door={door}
-          people={people}
+          people={peopleList}
           togglePersonsPermissions={togglePersonsPermissions}
         />
       ))}

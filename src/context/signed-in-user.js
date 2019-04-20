@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import useGetAllPeople from '../hooks/useGetAllPeople.js';
+import useGetArray from '../hooks/useGetArray.js';
+import { people } from '../api/index.js';
 
 export const SignedInUserContext = React.createContext();
 
@@ -9,7 +10,7 @@ export const SignedInUserProvider = ({ children }) => {
   // signed in user.
   // NOTE: For a real app, it would be okay to not have a default but for
   // this demo it makes things a little nicer.
-  const [peopleList] = useGetAllPeople();
+  const [peopleList] = useGetArray(people.getAll);
 
   // Because the 'peopleList' is initally an empty array, we don't have any
   // user data to set as the default for a signed-in user.

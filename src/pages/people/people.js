@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 
 import { people } from '../../api/index.js';
 import Page from '../../components/page/page.js';
-import useGetAllPeople from '../../hooks/useGetAllPeople.js';
+import useGetArray from '../../hooks/useGetArray.js';
 
 const People = () => {
-  const [peopleList, refreshPeopleList] = useGetAllPeople();
+  const [peopleList, refreshPeopleList] = useGetArray(people.getAll);
   const [personName, setPersonName] = useState('');
 
   const addNewPerson = async event => {

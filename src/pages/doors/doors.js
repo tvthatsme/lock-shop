@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 
 import Page from '../../components/page/page.js';
 import { doors } from '../../api/index.js';
-import useGetAllDoors from '../../hooks/useGetAllDoors.js';
+import useGetArray from '../../hooks/useGetArray.js';
 
 const Doors = () => {
-  const [doorsList, refreshDoorsList] = useGetAllDoors();
+  const [doorsList, refreshDoorsList] = useGetArray(doors.getAll);
   const [doorName, setDoorName] = useState('');
 
   // Add new door to the system
