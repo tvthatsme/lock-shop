@@ -37,6 +37,26 @@ function addOneOfType(type) {
 }
 
 /**
+ * Define a function for creating curried functions to modify an item of a specific
+ * type in the backend database.
+ *
+ * @param {string} type
+ * @returns {(id: string, data: any) => Promise<AxiosResponse<any>>}
+ */
+function modifyOneOfType(type) {
+  return async function modifyType(id, data) {
+    const response = await fetch(`${apiEndpoint}${type}/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    return response.status === 200;
+  };
+}
+
+/**
  * Define a function for creating curried functions to remove an item of a specific
  * type from the backend database.
  *
@@ -56,9 +76,11 @@ function removeOneOfType(type) {
 const doors = {
   getAll: getAllOfType('doors'),
   add: addOneOfType('doors'),
+  modify: modifyOneOfType('doors'),
   remove: removeOneOfType('doors')
 };
 
+// Create an object for all the CRUD operations relating to people
 const people = {
   getAll: getAllOfType('users'),
   add: addOneOfType('users'),
