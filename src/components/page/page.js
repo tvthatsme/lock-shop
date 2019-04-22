@@ -1,21 +1,32 @@
 import React from 'react';
 import { Link } from '@reach/router';
 
+import './page.css';
 import PrivateLink from '../private-link/private-link.js';
 
 const Page = ({ children }) => {
   return (
     <div>
-      <header>
+      <header className="header">
         <nav>
-          <Link to="/">Home</Link>
-          <PrivateLink to="/admin">Admin</PrivateLink>
-          <PrivateLink to="/doors">Doors</PrivateLink>
-          <PrivateLink to="/people">People</PrivateLink>
-          <PrivateLink to="/events">Events</PrivateLink>
+          <Link to="/" className="header__item">
+            Home
+          </Link>
+          <PrivateLink to="/admin" className="header__item">
+            Admin
+          </PrivateLink>
+          <PrivateLink to="/doors" className="header__item">
+            Doors
+          </PrivateLink>
+          <PrivateLink to="/people" className="header__item">
+            People
+          </PrivateLink>
+          <PrivateLink to="/events" className="header__item">
+            Events
+          </PrivateLink>
         </nav>
       </header>
-      {children}
+      <div className="page-content">{children}</div>
     </div>
   );
 };

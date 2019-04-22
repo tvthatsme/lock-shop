@@ -1,0 +1,21 @@
+.header {
+  background-color: #0d1433;
+  color: #fff;
+  padding: 20px 24px;
+  max-width: 100vw;
+  overflow: scroll;
+}
+
+.header__item {
+  margin-right: 20px;
+  font-weight: 700;
+}
+
+.header__item:visited {
+  color: #fff;
+}
+
+.page-content {
+  padding: 24px 24px 48px;
+  max-width: 100vw;
+}

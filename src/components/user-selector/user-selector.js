@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 
 import Selector from '../selector/selector.js';
-import { SignedInUserContext } from '../../context/signed-in-user.js';
+import { SignedInUserContext } from '../../contexts/signed-in-user.js';
 import { people } from '../../api/index.js';
 
 /**

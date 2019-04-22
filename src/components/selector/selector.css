@@ -1,0 +1,38 @@
+.selector {
+  position: relative;
+}
+
+.selector__clear {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  padding: 4px;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+}
+
+.selector__dropdown {
+  width: 100%;
+  margin-top: 6px;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 12px 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  overflow: hidden;
+}
+
+.selector__list {
+  list-style: none;
+}
+
+.selector__list-item {
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+.selector__list-item:hover {
+  cursor: pointer;
+  background-color: #eee;
+}

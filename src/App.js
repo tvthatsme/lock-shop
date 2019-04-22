@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { Router } from '@reach/router';
 
 // Import pages for the app
-import Main from './pages/main/main.js';
-import Admin from './pages/admin/admin.js';
-import Doors from './pages/doors/doors.js';
-import People from './pages/people/people.js';
-import Events from './pages/events/events.js';
+import Main from './pages/main.js';
+import Admin from './pages/admin.js';
+import Doors from './pages/doors.js';
+import People from './pages/people.js';
+import Events from './pages/events.js';
 
 // Import context needed throughout the app
-import { SignedInUserProvider } from './context/signed-in-user.js';
+import { SignedInUserProvider } from './contexts/signed-in-user.js';
 
 class App extends Component {
   render() {

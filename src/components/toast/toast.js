@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-const Toast = ({ children, displayFor = 5000, clearMessage }) => {
+import './toast.css';
+
+const Toast = ({ children, displayFor = 5000, clearMessage, ...props }) => {
   const [timeLeft, setTimeLeft] = useState(true);
 
   // Reset the timer if either children or the amount of time changes
@@ -25,7 +27,11 @@ const Toast = ({ children, displayFor = 5000, clearMessage }) => {
     return null;
   }
 
-  return <div>{children}</div>;
+  return (
+    <div className="toast" {...props}>
+      {children}
+    </div>
+  );
 };
 
 export default Toast;

@@ -1,11 +1,10 @@
-// admin page for connecting doors with people
-
 import React from 'react';
 
-import Page from '../../components/page/page.js';
-import PermissionsBar from '../../components/permissions-bar/permissions-bar.js';
-import useGetArray from '../../hooks/useGetArray.js';
-import { doors, people } from '../../api/index.js';
+import Page from '../components/page/page.js';
+import PermissionsBar from '../components/permissions-bar/permissions-bar.js';
+import useGetArray from '../hooks/useGetArray.js';
+import { doors, people } from '../api/index.js';
+import { SettingsIcon } from '../icons/index.js';
 
 const Admin = () => {
   const [doorsList, refreshDoorsList] = useGetArray(doors.getAll);
@@ -35,7 +34,15 @@ const Admin = () => {
 
   return (
     <Page>
-      <h1>Admin</h1>
+      <h1>
+        <SettingsIcon height={40} width={40} className="header-icon" />
+        Admin
+      </h1>
+      <h2>Give your users access</h2>
+      <p className="help-text">
+        Get a quick overview of who has access to each door or set fine-grain
+        permissions by clicking the "Edit Access" button on an individual door.
+      </p>
       {doorsList.map(door => (
         <PermissionsBar
           key={door.id}

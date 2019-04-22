@@ -1,0 +1,57 @@
+.permissions-bar {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.permissions-bar__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: -12px -12px 12px;
+  padding: 20px 12px;
+  font-weight: bold;
+  background-color: #0d1433;
+  color: #fff;
+  font-size: 18px;
+}
+
+.permissions-bar__explain {
+  display: inline-block;
+  line-height: 28px;
+  margin: 0 12px 0 0;
+}
+
+.permissions-bar__edit {
+  margin-top: -6px;
+  font-size: 18px;
+  padding: 3px 24px;
+}
+
+.permissions-bar__toggle,
+.permissions-bar__toggle:hover,
+.permissions-bar__toggle:focus {
+  padding: 0;
+  color: #7988f3;
+  background-color: #fff;
+}
+
+.permissions-bar__modal-title {
+  margin-top: 0;
+}
+
+.permissions-bar__close {
+  display: block;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  background-color: #7988f3;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px;
+  margin-top: 24px;
+}

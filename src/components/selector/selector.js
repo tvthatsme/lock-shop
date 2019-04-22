@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 
+import './selector.css';
+import { XIcon } from '../../icons/index.js';
+
 const Selector = ({ items, selectedItem = '', onSelect }) => {
   const selectorRef = useRef(null);
   const inputRef = useRef(null);
@@ -47,7 +50,7 @@ const Selector = ({ items, selectedItem = '', onSelect }) => {
   };
 
   return (
-    <div ref={selectorRef}>
+    <div className="selector" ref={selectorRef}>
       <input
         ref={inputRef}
         type="text"
@@ -56,16 +59,19 @@ const Selector = ({ items, selectedItem = '', onSelect }) => {
         onClick={openDropdown}
         onFocus={openDropdown}
       />
-      <button type="button" onClick={clearInput}>
-        x
-      </button>
+      {search.length > 0 && (
+        <button type="button" className="selector__clear" onClick={clearInput}>
+          <XIcon />
+        </button>
+      )}
       {dropdownOpen && (
-        <div>
-          <ul>
+        <div className="selector__dropdown">
+          <ul className="selector__list">
             {matchingItems.map(item => {
               return (
                 <li
                   key={item.id}
+                  className="selector__list-item"
                   onClick={() => {
                     handleSelect(item.id);
                   }}

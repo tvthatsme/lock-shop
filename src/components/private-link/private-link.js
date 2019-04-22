@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from '@reach/router';
 
-import { SignedInUserContext } from '../../context/signed-in-user.js';
+import { SignedInUserContext } from '../../contexts/signed-in-user.js';
 
 const PrivateLink = ({ children, ...props }) => {
   // Get the signed-in user from context

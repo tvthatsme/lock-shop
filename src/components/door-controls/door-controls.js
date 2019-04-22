@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 
+import './door-controls.css';
 import Toast from '../toast/toast.js';
-import { SignedInUserContext } from '../../context/signed-in-user.js';
+import { SignedInUserContext } from '../../contexts/signed-in-user.js';
 import { events } from '../../api/index.js';
 
 const DoorControls = ({ door, ...props }) => {
@@ -33,16 +34,31 @@ const DoorControls = ({ door, ...props }) => {
   };
 
   return (
-    <div {...props}>
-      <p>{door.label}</p>
-      <Toast clearMessage={clearMessage}>
-        <p>{message}</p>
-      </Toast>
-      <button type="button" onClick={openDoor}>
-        Open
-      </button>
-    </div>
+    <tr {...props}>
+      <td>{door.label}</td>
+      <td>
+        <button
+          type="button"
+          className="door-controls__open"
+          onClick={openDoor}
+        >
+          Open Door
+        </button>
+      </td>
+      <td>
+        {message.length ? (
+          <Toast clearMessage={clearMessage} style={customeToastStyle}>
+            <p className="door-controls__feedback">{message}</p>
+          </Toast>
+        ) : null}
+      </td>
+    </tr>
   );
 };
 
 export default DoorControls;
+
+// Extend the default toast styles a bit
+const customeToastStyle = {
+  padding: '6px 24px'
+};
