@@ -52,7 +52,7 @@ const Events = () => {
               <th>Authorized</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style={eventsStyles}>
             {sortedList.map(event => {
               return (
                 <tr key={event.id}>
@@ -71,3 +71,9 @@ const Events = () => {
 };
 
 export default Events;
+
+// Add a custom style to events to make the data more readable
+const eventsStyles = {
+  fontFamily: `source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace`
+};

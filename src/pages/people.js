@@ -43,7 +43,11 @@ const People = () => {
               value={personName}
               onChange={event => setPersonName(event.target.value)}
             />
-            <button type="submit" className="form-submit">
+            <button
+              type="submit"
+              className="form-submit"
+              disabled={personName.length < 1}
+            >
               Add
             </button>
           </div>
@@ -64,21 +68,23 @@ const People = () => {
             </tr>
           </thead>
           <tbody>
-            {peopleList.map(person => (
-              <tr key={person.id}>
-                <td>{person.name}</td>
-                <td>
-                  <button
-                    type="button"
-                    className="table-button"
-                    title={`Remove ${person.name} from system`}
-                    onClick={() => removePerson(person.id)}
-                  >
-                    <TrashcanIcon height={18} width={18} />
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {peopleList
+              .filter(person => person.name !== 'admin')
+              .map(person => (
+                <tr key={person.id}>
+                  <td>{person.name}</td>
+                  <td>
+                    <button
+                      type="button"
+                      className="table-button"
+                      title={`Remove ${person.name} from system`}
+                      onClick={() => removePerson(person.id)}
+                    >
+                      <TrashcanIcon height={18} width={18} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

@@ -45,7 +45,11 @@ const Doors = () => {
               value={doorName}
               onChange={event => setDoorName(event.target.value)}
             />
-            <button type="submit" className="form-submit">
+            <button
+              type="submit"
+              className="form-submit"
+              disabled={doorName.length < 1}
+            >
               Add
             </button>
           </div>
