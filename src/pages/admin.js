@@ -51,6 +51,14 @@ const Admin = () => {
           togglePersonsPermissions={togglePersonsPermissions}
         />
       ))}
+
+      {/* Give the user some hints if there is nothing shown on this page */}
+      {doorsList.length < 1 && (
+        <p className="notice-text">
+          You haven't added any doors to the system yet. Get started on the
+          doors page and then come back here to set permissions.
+        </p>
+      )}
     </Page>
   );
 };

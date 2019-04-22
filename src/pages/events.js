@@ -66,6 +66,14 @@ const Events = () => {
           </tbody>
         </table>
       </div>
+
+      {/* Give the user some hints if there is nothing shown on this page */}
+      {sortedList.length < 1 && (
+        <p className="notice-text">
+          Looks like there aren't any events yet. Once we have some activity to
+          show, it will appear here.
+        </p>
+      )}
     </Page>
   );
 };

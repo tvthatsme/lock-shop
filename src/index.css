@@ -106,6 +106,14 @@ button:hover {
   font-size: 14px;
 }
 
+.notice-text {
+  padding: 16px;
+  margin-top: 24px;
+  border-radius: 12px;
+  background-color: #fff7d6;
+  overflow: hidden;
+}
+
 form label {
   display: block;
   font-weight: 700;

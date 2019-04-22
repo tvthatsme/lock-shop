@@ -21,6 +21,11 @@ const People = () => {
     refreshPeopleList();
   };
 
+  // Don't show admin in this list because we won't allow that user to be removed
+  const peopleListWithoutAdmin = peopleList.filter(
+    person => person.name !== 'admin'
+  );
+
   return (
     <Page>
       <h1>
@@ -68,26 +73,32 @@ const People = () => {
             </tr>
           </thead>
           <tbody>
-            {peopleList
-              .filter(person => person.name !== 'admin')
-              .map(person => (
-                <tr key={person.id}>
-                  <td>{person.name}</td>
-                  <td>
-                    <button
-                      type="button"
-                      className="table-button"
-                      title={`Remove ${person.name} from system`}
-                      onClick={() => removePerson(person.id)}
-                    >
-                      <TrashcanIcon height={18} width={18} />
-                    </button>
-                  </td>
-                </tr>
-              ))}
+            {peopleListWithoutAdmin.map(person => (
+              <tr key={person.id}>
+                <td>{person.name}</td>
+                <td>
+                  <button
+                    type="button"
+                    className="table-button"
+                    title={`Remove ${person.name} from system`}
+                    onClick={() => removePerson(person.id)}
+                  >
+                    <TrashcanIcon height={18} width={18} />
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
+
+      {/* Give the user some hints if there is nothing shown on this page */}
+      {peopleListWithoutAdmin.length < 1 && (
+        <p className="notice-text">
+          Looks like there aren't any people added to the system yet. Get
+          started by using the form at the top of this page.
+        </p>
+      )}
     </Page>
   );
 };

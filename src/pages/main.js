@@ -47,6 +47,14 @@ const Main = () => {
           </tbody>
         </table>
       </div>
+
+      {/* Give the user some hints if there is nothing shown on this page */}
+      {doorsList.length < 1 && (
+        <p className="notice-text">
+          Looks like there aren't any doors added to the system yet. Your
+          administer needs to add doors before you can unlock anything.
+        </p>
+      )}
     </Page>
   );
 };

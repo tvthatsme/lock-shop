@@ -93,6 +93,14 @@ const Doors = () => {
           </tbody>
         </table>
       </div>
+
+      {/* Give the user some hints if there is nothing shown on this page */}
+      {doorsList.length < 1 && (
+        <p className="notice-text">
+          Looks like there aren't any doors added to the system yet. Get started
+          by using the form at the top of this page.
+        </p>
+      )}
     </Page>
   );
 };
