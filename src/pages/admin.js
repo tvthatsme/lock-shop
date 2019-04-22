@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Page from '../components/page/page.js';
+import PageHeader from '../components/page-header/page-header.js';
 import PermissionsBar from '../components/permissions-bar/permissions-bar.js';
 import useGetArray from '../hooks/useGetArray.js';
 import { doors, people } from '../api/index.js';
@@ -34,10 +35,7 @@ const Admin = () => {
 
   return (
     <Page>
-      <h1>
-        <SettingsIcon height={40} width={40} className="header-icon" />
-        Admin
-      </h1>
+      <PageHeader Icon={SettingsIcon}>Admin</PageHeader>
       <h2>Give your users access</h2>
       <p className="help-text">
         Get a quick overview of who has access to each door or set fine-grain

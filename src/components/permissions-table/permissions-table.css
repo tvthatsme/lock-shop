@@ -1,0 +1,11 @@
+.permissions-table__toggle,
+.permissions-table__toggle:hover,
+.permissions-table__toggle:focus {
+  padding: 0;
+  color: #7988f3;
+  background-color: #fff;
+}
+
+.permissions-table__modal-title {
+  margin-top: 0;
+}

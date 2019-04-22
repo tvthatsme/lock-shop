@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { people } from '../api/index.js';
 import Page from '../components/page/page.js';
+import PageHeader from '../components/page-header/page-header.js';
 import useGetArray from '../hooks/useGetArray.js';
 import { TrashcanIcon, UsersIcon } from '../icons/index.js';
 
@@ -28,10 +29,7 @@ const People = () => {
 
   return (
     <Page>
-      <h1>
-        <UsersIcon height={40} width={40} className="header-icon" />
-        People
-      </h1>
+      <PageHeader Icon={UsersIcon}>People</PageHeader>
 
       <div className="limited-width">
         <h2>Add a new person</h2>

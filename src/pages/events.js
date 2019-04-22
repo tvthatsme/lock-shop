@@ -2,6 +2,7 @@ import React from 'react';
 import format from 'date-fns/format';
 
 import Page from '../components/page/page.js';
+import PageHeader from '../components/page-header/page-header.js';
 import useGetArray from '../hooks/useGetArray.js';
 import { events, people, doors } from '../api/index.js';
 import { EventsIcon } from '../icons/index.js';
@@ -33,10 +34,7 @@ const Events = () => {
 
   return (
     <Page>
-      <h1>
-        <EventsIcon height={40} width={40} className="header-icon" />
-        Events
-      </h1>
+      <PageHeader Icon={EventsIcon}>Events</PageHeader>
       <h2>See who's been here</h2>
       <p className="help-text">
         This table provides an overview of all access requests for doors in the

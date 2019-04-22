@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Page from '../components/page/page.js';
+import PageHeader from '../components/page-header/page-header.js';
 import { doors } from '../api/index.js';
 import useGetArray from '../hooks/useGetArray.js';
 import { TrashcanIcon, KeyIcon } from '../icons/index.js';
@@ -25,10 +26,7 @@ const Doors = () => {
 
   return (
     <Page>
-      <h1>
-        <KeyIcon height={40} width={40} className="header-icon" />
-        Doors
-      </h1>
+      <PageHeader Icon={KeyIcon}>Doors</PageHeader>
 
       <div className="limited-width">
         <h2>Add a new door</h2>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Page from '../components/page/page.js';
+import PageHeader from '../components/page-header/page-header.js';
 import UserSelector from '../components/user-selector/user-selector.js';
 import DoorControls from '../components/door-controls/door-controls.js';
 import useGetArray from '../hooks/useGetArray.js';
@@ -12,10 +13,7 @@ const Main = () => {
 
   return (
     <Page>
-      <h1>
-        <HomeIcon height={40} width={40} className="header-icon" />
-        Home
-      </h1>
+      <PageHeader Icon={HomeIcon}>Home</PageHeader>
       <div className="limited-width">
         <h2>Select a user</h2>
         <p className="help-text">

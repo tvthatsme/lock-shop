@@ -31,18 +31,6 @@
   padding: 3px 24px;
 }
 
-.permissions-bar__toggle,
-.permissions-bar__toggle:hover,
-.permissions-bar__toggle:focus {
-  padding: 0;
-  color: #7988f3;
-  background-color: #fff;
-}
-
-.permissions-bar__modal-title {
-  margin-top: 0;
-}
-
 .permissions-bar__close {
   display: block;
   width: 100%;
