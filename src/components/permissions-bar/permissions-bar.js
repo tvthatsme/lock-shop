@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './permissions-bar.css';
 import DeleteablePill from '../deleteable-pill/deleteable-pill.js';
-import CustomModal from '../modal/modal.js';
+import CustomModal, { useModalState } from '../modal/modal.js';
 import PermissionsTable from '../permissions-table/permissions-table.js';
 
 const PermissionsBar = ({ door, people, togglePersonsPermissions }) => {
-  const [modalIsOpen, setModalOpen] = useState(false);
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  const [modalIsOpen, openModal, closeModal] = useModalState();
 
   // Create an array of people and their authorized state for this door
   const peopleWithAuthStates = people.map(person => {
@@ -27,9 +23,7 @@ const PermissionsBar = ({ door, people, togglePersonsPermissions }) => {
         <button
           type="button"
           className="permissions-bar__edit"
-          onClick={() => {
-            setModalOpen(true);
-          }}
+          onClick={openModal}
         >
           Edit Access
         </button>

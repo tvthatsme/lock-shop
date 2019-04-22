@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import Modal from 'react-modal';
 
 Modal.setAppElement('#root');
@@ -27,6 +27,22 @@ const CustomModal = ({ isOpen, onRequestClose, ...props }) => {
 
 export default CustomModal;
 
+// Expose a custom hook for keeping track of the modal open state
+export const useModalState = (initialState = false) => {
+  const [modalIsOpen, setModalOpen] = useState(initialState);
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  return [modalIsOpen, openModal, closeModal];
+};
+
+// Set custom style for modal
 const customStyles = {
   content: {
     top: '50%',
