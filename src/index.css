@@ -127,8 +127,8 @@ input {
   transition: background-color 0.3s ease-in-out;
 }
 
-form input:focus,
-form input:hover {
+input:focus,
+input:hover {
   outline: none;
   background-color: rgba(121, 136, 243, 0.1);
 }
